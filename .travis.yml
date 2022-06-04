@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t a-marian/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run a-marian/docker-react npm run test -- -- coverage
